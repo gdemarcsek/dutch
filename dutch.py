@@ -100,9 +100,9 @@ class Lesson:
         lessons = []
         for p in Path('./lessons/').iterdir():
             if p.is_dir():
-                lessons.append(Lesson(p.name))
+                lessons.append(p.name)
 
-        return lessons
+        return list(map(lambda x: Lesson(x), sorted(lessons)))
 
 
 if __name__ == '__main__':
